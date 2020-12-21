@@ -94,11 +94,13 @@ def main():
     len(output_pad[0])
     vocab_size=len(unique_word_index)+2
 
+    # Model building start 
+    
     inputt=Input(shape=(100,))
     emb=Embedding(vocab_size,100,input_length=100)
     emb=emb(inputt)
     emb=Dropout(0.1)(emb)
-    lstm=Bidirectional(LSTM(units=100,return_sequences=True,dropout=0.1))
+    lstm=Bidirectional(LSTM(units=100,return_sequences=True,dropout=0.1,activation='relu'))
     out=lstm(emb)
     output=TimeDistributed(Dense(units=13,activation='softmax'))(out)
     model=Model(inputt,output)
@@ -110,11 +112,14 @@ def main():
 
     output_pad=[to_categorical(i,num_classes=13) for i in output_pad]
 
-
+    # train test split of data
+    
     x_train,x_test,y_train,y_test=train_test_split(input_pad,output_pad,test_size=0.2,random_state=0)
     print(x_test.shape)
     print(x_test)
 
+    # fitting the model
+    
     model.fit(x_train,np.array(y_train),batch_size=128,epochs=5,validation_data=(x_test,np.array(y_test)))
     y_pred=model.predict(np.array([x_test[1]]))
     np.array([x_test[1]])
