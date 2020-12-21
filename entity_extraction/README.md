@@ -39,9 +39,13 @@ Project Organization
    All the coding is in four different file :
    
    1)make_dataset.py --> Building dataset 
+   
    2)visualize.py  --->Data visualization part
+   
    3)Mode1_Bert.py  ---> Bert approach for solving this problem  (from loading dataset till model validation)
+   
    4)Model2_BILSTM.py ---> BILSTM approach for solving this problem
+   
    
    requirements.txt ---> All the required dependency mention here 
    
