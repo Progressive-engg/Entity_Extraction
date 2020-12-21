@@ -52,6 +52,9 @@ all_tokens1 = []
 all_masks1 = []
 all_segments1 = []
 
+
+#Applying word embedding using BERT
+
 def bert_encode(texts, tokenizer, max_len=512,type=data):
 
     text = texts.split(" ")
@@ -89,6 +92,8 @@ for item in data.index:
 
 
 print("end")
+
+#Appying model usng pretrained BERT
 
 def build_model(bert_layer, max_len):
 
