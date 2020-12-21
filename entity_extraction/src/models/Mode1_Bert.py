@@ -40,7 +40,7 @@ print('******',vocab_file)
 do_lower_case = bert_layer.resolved_object.do_lower_case.numpy()
 print(do_lower_case)
 tokenizer = tokenization.FullTokenizer(vocab_file, do_lower_case)
-print(tokenizer)
+
 
 #creating empty list  input and output data i.e data & label
 
@@ -86,7 +86,7 @@ print(data_tokens)
 
 for item in data.index:
     label_tokens = bert_encode(label[item], tokenizer, max_len=max_len,type=False)
-print(label_tokens)
+
 
 print("end")
 
