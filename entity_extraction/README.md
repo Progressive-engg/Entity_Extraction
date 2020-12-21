@@ -2,7 +2,9 @@ Entity_Extraction
 ==============================
 
 A short description of the project.
+
 Note : All the required code is in "src" Folder
+
 Project Organization
 ------------
       
